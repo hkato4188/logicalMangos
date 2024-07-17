@@ -9,16 +9,17 @@
 
         <!-- Database connection settings -->
         <property name="connection.driver_class">com.mysql.cj.jdbc.Driver</property>
-        <property name="connection.url">jdbc:mysql://localhost:3306/manyToOne</property>
+        <property name="connection.url">jdbc:mysql://localhost:3306/manyToOne?createDatabaseIfNotExist=true</property>
         <property name="connection.username">root</property>
-        <property name="connection.password">rootpwd61#</property>
+        <property name="connection.password">password</property>
 
         <!-- MySQL DB dialect -->
         <property name="dialect">org.hibernate.dialect.MySQLDialect</property>
         <!-- print all executed SQL on console -->
         <property name="hibernate.show_sql" >true </property>
         <property name="hibernate.format_sql" >true </property>
-
+        <property name="hibernate.use_sql_comments">true</property>
+        <property name="hibernate.connection.pool_size">1</property>
 <!--        &lt;!&ndash;   Mapping entity file →-->
         <mapping class="model.Teacher"/>
         <mapping class="model.Department"/>

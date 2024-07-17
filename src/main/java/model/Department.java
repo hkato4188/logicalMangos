@@ -59,8 +59,8 @@ public class Department implements Serializable {
         this.deptName = deptName;
     }
 
-//    @Override
-//    public String toString() {
-//        return "Department{" + "deptId=" + deptId + ", deptName='" + deptName + '\'' + ", teacherList=" + teacherList + '}';
-//    }
+    @Override
+    public String toString() {
+        return "Department{" + "deptId=" + deptId + ", deptName='" + deptName + '\'' + ", teacherList=" + teacherList + '}';
+    }
 }
