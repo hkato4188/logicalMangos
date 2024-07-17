@@ -54,8 +54,9 @@ public class manyToOneInteractive {
                 }
             }
         } catch (Exception e) {
-            System.out.println("We got an exception!");
+
             e.printStackTrace();
+
         } finally {
             System.out.println("We are done with the main method!");
             session.close();
