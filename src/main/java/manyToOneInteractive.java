@@ -11,8 +11,21 @@ import java.util.Scanner;
 
 public class manyToOneInteractive {
     public static void main(String[] args) {
+        mangoArt();
         manyToOneInteractive();
     }
+
+    public static void mangoArt() {
+            System.out.println("        🟤          ");
+            System.out.println("    / 🟧🟥🟧\\      ");
+            System.out.println("   /🟧🟧🟥🟥🟧\\   ");
+            System.out.println("  /🟧🟧🟥🟥🟥🟥\\  ");
+            System.out.println(" | LogicalMangos |  ");
+            System.out.println("  \\🟧🟧🟧🟩🟩🟧/  ");
+            System.out.println("   \\🟧🟧🟧🟩🟧/   ");
+            System.out.println("     '------'       ");
+    }
+
 
     public static void manyToOneInteractive() {
         System.out.println("Welcome to ManyToOneInteractive!");
