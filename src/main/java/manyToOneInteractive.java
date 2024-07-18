@@ -16,19 +16,19 @@ public class manyToOneInteractive {
     }
 
     public static void mangoArt() {
-            System.out.println("        🟤          ");
-            System.out.println("    / 🟧🟥🟧\\      ");
-            System.out.println("   /🟧🟧🟥🟥🟧\\   ");
-            System.out.println("  /🟧🟧🟥🟥🟥🟥\\  ");
-            System.out.println(" | LogicalMangos |  ");
-            System.out.println("  \\🟧🟧🟧🟩🟩🟧/  ");
-            System.out.println("   \\🟧🟧🟧🟩🟧/   ");
-            System.out.println("     '------'       ");
+            System.out.println(" W        🟤           M ");
+            System.out.println(" E    / 🟧🟥🟧 \\      🥭 ");
+            System.out.println(" L   /🟧🟧🟥🟥🟧\\     N ");
+            System.out.println(" C  /🟧🟧🟥🟥🟥🟥\\    G ");
+            System.out.println(" O | LogicalMangos |   O ");
+            System.out.println(" M  \\🟧🟧🟧🟩🟩🟧/      ");
+            System.out.println(" E   \\🟧🟧🟧🟩🟧/     D ");
+            System.out.println(" !     '------'        B ");
     }
 
 
     public static void manyToOneInteractive() {
-        System.out.println("Welcome to ManyToOneInteractive!");
+
         SessionFactory factory = new Configuration().configure().buildSessionFactory();
         Session session = factory.openSession();
         try (Scanner scanner = new Scanner(System.in)) {
