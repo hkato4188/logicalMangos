@@ -5,8 +5,6 @@ import java.io.Serial;
 import java.io.Serializable;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import model.Department;
-//import model.Address;
 
 @Entity
 @Table
@@ -33,11 +31,4 @@ public class Teacher implements Serializable {
         this.salary = salary;
         TeacherName = teacherName;
     }
-
-    //    @OneToOne(cascade = CascadeType.ALL)
-//    private Address address;
-
-//    @ManyToMany(targetEntity = Cohort.class)
-//    private Set<Cohort> cohort;
-
 }

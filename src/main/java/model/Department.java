@@ -27,7 +27,8 @@ public class Department implements Serializable {
     @OneToMany(mappedBy = "department", cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REMOVE}, orphanRemoval = true, fetch = FetchType.EAGER)
     private List<Teacher> teacherList = new ArrayList<>();
 
-    public Department(String userInputDept) {
+    public Department(String name) {
+        this.deptName = name;
     }
 
     @Override
@@ -38,13 +39,11 @@ public class Department implements Serializable {
                 '}';
     }
 
-    // Utility method to add a teacher
     public void addTeacher(Teacher teacher) {
         teacherList.add(teacher);
         teacher.setDepartment(this);
     }
 
-    // Utility method to remove a teacher
     public void removeTeacher(Teacher teacher) {
         teacherList.remove(teacher);
         teacher.setDepartment(null);
