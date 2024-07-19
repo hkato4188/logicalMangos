@@ -31,7 +31,7 @@ public class DepartmentDAO {
             System.out.println("2. Delete Department");
             System.out.println("3. Modify Department");
             System.out.println("4. Go back to menu");
-            System.out.println("0. Exit");
+
             System.out.print("\nChoose an option: ");
 
             int deptChoice = scanner.nextInt();
@@ -41,7 +41,6 @@ public class DepartmentDAO {
                         transaction = session.beginTransaction();
                         System.out.println("\n1. Enter name of the department you want to add: ");
                         scanner.nextLine();
-
                         String userInputAddDeptByName = scanner.nextLine();
 
                         Department dept = new Department(userInputAddDeptByName);

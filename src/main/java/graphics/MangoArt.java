@@ -13,5 +13,4 @@ public class MangoArt {
         System.out.println(" E   \\ 🟧🟧🟧🟧 /     DataBase ");
         System.out.println("      '-------'      \n\n\n");
     }
-
 }
