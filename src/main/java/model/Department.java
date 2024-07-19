@@ -1,6 +1,9 @@
 package model;
 
 import jakarta.persistence.*;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.RequiredArgsConstructor;
 
 import java.io.Serial;
 import java.io.Serializable;
@@ -9,6 +12,9 @@ import java.util.List;
 
 @Entity
 @Table
+@Data
+@NoArgsConstructor
+
 public class Department implements Serializable {
     @Serial
     private static final long serialVersionUID = 1L;
@@ -17,50 +23,30 @@ public class Department implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int deptId;
     private String deptName;
-//        @OneToMany(targetEntity= Teacher.class, cascade = CascadeType.ALL)
-    @OneToMany(mappedBy = "department")
+
+    @OneToMany(mappedBy = "department", cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REMOVE}, orphanRemoval = true, fetch = FetchType.EAGER)
     private List<Teacher> teacherList = new ArrayList<>();
 
-    public Department(int deptId, String deptName) {
-        super();
-        this.deptId = deptId;
-        this.deptName = deptName;
-    }
-
-    public List<Teacher> getTeacherList() {
-        return teacherList;
-    }
-
-    public void setTeacherList(List<Teacher> teacherList) {
-        this.teacherList = teacherList;
-    }
-
-
-    public Department() {
-    }
-
-    public Department(String deptName) {
-        this.deptName = deptName;
-    }
-
-    public int getDeptId() {
-        return deptId;
-    }
-
-    public void setDeptId(int deptId) {
-        this.deptId = deptId;
-    }
-
-    public String getDeptName() {
-        return deptName;
-    }
-
-    public void setDeptName(String deptName) {
-        this.deptName = deptName;
+    public Department(String userInputDept) {
     }
 
     @Override
     public String toString() {
-        return "Department{" + "deptId=" + deptId + ", deptName='" + deptName + '\'' + ", teacherList=" + teacherList + '}';
+        return "Department{" +
+                "deptId=" + deptId +
+                ", deptName='" + deptName + '\'' +
+                '}';
+    }
+
+    // Utility method to add a teacher
+    public void addTeacher(Teacher teacher) {
+        teacherList.add(teacher);
+        teacher.setDepartment(this);
+    }
+
+    // Utility method to remove a teacher
+    public void removeTeacher(Teacher teacher) {
+        teacherList.remove(teacher);
+        teacher.setDepartment(null);
     }
 }

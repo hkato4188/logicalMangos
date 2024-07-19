@@ -1,56 +1,43 @@
 package model;
 
 import jakarta.persistence.*;
-
 import java.io.Serial;
 import java.io.Serializable;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import model.Department;
+//import model.Address;
 
 @Entity
 @Table
+@Data
+@NoArgsConstructor
 public class Teacher implements Serializable {
     @Serial
     private static final long serialVersionUID = 1L;
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue( strategy=GenerationType.IDENTITY )
     private int teacherId;
-    private String teacherName;
+    private String salary;
+    private String TeacherName;
+
     @ManyToOne
-    @JoinColumn(name = "department_Id")
+    @JoinColumn(name = "department_id", referencedColumnName = "deptId")
     private Department department;
 
-
-    public Teacher() {
+    public Teacher(String teacherName) {
+        TeacherName = teacherName;
     }
 
-
-    public Teacher(String teacherName, Department department) {
-        this.teacherName = teacherName;
-        this.department = department;
+    public Teacher(String salary, String teacherName) {
+        this.salary = salary;
+        TeacherName = teacherName;
     }
 
-    public Department getDepartment() {
-        return department;
-    }
+    //    @OneToOne(cascade = CascadeType.ALL)
+//    private Address address;
 
-    public void setDepartment(Department department) {
-        this.department = department;
-    }
+//    @ManyToMany(targetEntity = Cohort.class)
+//    private Set<Cohort> cohort;
 
-    public int getTeacherId(){
-        return teacherId;
-    }
-    public void setTeacherId(int teacherId) {
-        this.teacherId = teacherId;
-    }
-
-    public String getTeacherName() {
-        return teacherName;
-    }
-    public void setTeacherName(String teacherName) {
-        this.teacherName = teacherName; }
-
-    @Override
-    public String toString() {
-        return "Teacher{" + "teacherId=" + teacherId + ", teacherName='" + teacherName + '\'' + ", department=" + department + '}';
-    }
 }
